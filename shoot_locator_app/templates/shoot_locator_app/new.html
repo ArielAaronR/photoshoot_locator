@@ -1,0 +1,63 @@
+{% extends 'shoot_locator_app/base.html' %} {% load static %} {% block new %}
+<div class="container">
+  <div class="row">
+    <div class="card col s12 m10 l12 offset-m1">
+      <div class="card-content">
+        <div class="card-title">New Shoot Location</div>
+        <form action="/new_process" method="POST">
+          {% csrf_token %}
+          <label>Location</label>
+          <input type="text" name="name" />
+          <label>Photo</label>
+          <input type="text" name="image">
+          <label>Address</label>
+          <input type="text" name="address" />
+
+          <label>Descriptor</label>
+          <select class="browser-default" name="descriptors">
+            <option value="" disabled selected>Choose your descriptor</option>
+            <option value="alley">Alley</option>
+            <option value="brick">Brick</option>
+            <option value="bright">Bright</option>
+            <option value="clean">Clean</option>
+            <option value="colorful">Colorful</option>
+            <option value="dark">Dark</option>
+            <option value="drama">Drama</option>
+            <option value="garden">Garden</option>
+            <option value="geometric">Geometric</option>
+            <option value="graffiti">Graffiti</option>
+            <option value="gritty">Gritty</option>
+            <option value="floral">Floral</option>
+            <option value="forest">Forest</option>
+            <option value="japanese">Japanese</option>
+            <option value="korean">Korean</option>
+            <option value="moody">Moody</option>
+            <option value="neon">Neon</option>
+            <option value="nightshoot">Night Shoot</option>
+            <option value="park">Park</option>
+            <option value="parkingstructure">Parking Structure</option>
+            <option value="permitreq">Permit Required</option>
+            <option value="rental">Rental</option>
+            <option value="school">School</option>
+            <option value="street">Street</option>
+            <option value="studiolighting">Studio Lighting</option>
+          </select>
+
+          <div class="input-field col s12">
+            <textarea
+              name="description"
+              class="materialize-textarea"
+            ></textarea>
+            <label>Notes</label>
+          </div>
+          <button class="btn waves-effect waves-light" type="submit">
+            Submit
+          </button>
+          <a class="btn waves-effect waves-light red " href="/dashboard">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
